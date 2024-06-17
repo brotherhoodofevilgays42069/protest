@@ -8,21 +8,30 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 const addresses = [
-    '1600 Amphitheatre Parkway, Mountain View, CA',
-    '1 Infinite Loop, Cupertino, CA',
-    '1601 Willow Road, Menlo Park, CA',
-    '1 Hacker Way, Menlo Park, CA',
-    '500 Terry Francois Blvd, San Francisco, CA',
-    '1355 Market St, San Francisco, CA',
-    '1455 Market St, San Francisco, CA',
-    '275 Battery St, San Francisco, CA',
-    '343 Sansome St, San Francisco, CA',
-    '505 Montgomery St, San Francisco, CA',
-    '799 Market St, San Francisco, CA',
-    '44 Montgomery St, San Francisco, CA',
-    '123 Mission St, San Francisco, CA',
-    '600 Montgomery St, San Francisco, CA',
-    '1 Post St, San Francisco, CA'
+    '291 north St, saco, me',
+    '326 ibm RD., williston, vt',
+    '156 cedar ave, scranton, pa',
+    '459 kennedty DR., Archibald PA',
+    '11816 n creek pkwy, suite 100 bothell wa',
+     '6658 Rt 148, marion, il',
+     '200 S pioneer blvd Springboro oh',
+     '5000 chesire ln n plymouth mn',
+     '4300 industrail ave, Lincoln ne',
+     '6345 AR 203 Highway Hampton, AR',
+     '1200 n glenbrook dr, garland tx',
+     '1425 commercial blvd Anniston AL',
+     '7745 Eagle Rd Redstone Arsenal AL',
+     '8900 de soto ave canoga park, CA ',
+     '1151 W Reeves Ave, Ridgecrest Ca',
+     '9401 corbin ave, northridge, ca',
+     '16550 w bernardo dr, san diego Ca',
+     '7499 pine stake rd, culpeper VA',
+     '1250 e aero park blvd tucson, AZ',
+     '1 sw 11th st suite 290 lawton OK',
+     '210 wv-956, keyser, WV',
+     '2211 W North Temple St, Salt Lake City, UT',
+     '5000 s 8400 w, Magna UT',
+     
 ];
 
 const geocodeAPIKey = process.env.GOOGLE_MAPS_API_KEY;
