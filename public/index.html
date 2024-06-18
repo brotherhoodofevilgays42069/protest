@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Closest Address</title>
+</head>
+<body>
+    <h1>Enter ZIP Code to Find Closest Address</h1>
+    <form id="zipForm">
+        <label for="zip">ZIP Code:</label>
+        <input type="text" id="zip" name="zip" required>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('zipForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const zip = document.getElementById('zip').value;
+            const response = await fetch('/find-closest', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ zip })
+            });
+            const data = await response.json();
+            document.getElementById('result').innerText = `Closest Address: ${data.closestAddress}`;
+        });
+    </script>
+</body>
+</html>
