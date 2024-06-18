@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const zipCodeLookup = require('./zipcodes.js');
 
 const app = express();
 app.use(bodyParser.json());
@@ -39,15 +40,15 @@ const geocodeURL = 'https://maps.googleapis.com/maps/api/geocode/json';
 const distanceMatrixURL = 'https://maps.googleapis.com/maps/api/distancematrix/json';
 
 const getCoordinates = async (address) => {
-    const response = await axios.get(geocodeURL, {
-        params: { address: address, key: geocodeAPIKey }
-    });
-
-    if (response.data.results.length === 0) {
+    if (zipCodeLookup.hasOwnProperty(address)) {
+        return {
+            "lat": zipcodeLookup[address][0],
+            "lng": zipCodeLookup[address][1]
+        };
+    }
+    else {
         throw new Error(`No results found for address: ${address}`);
     }
-
-    return response.data.results[0].geometry.location;
 };
 
 const getClosestAddress = async (zipCoords) => {
